@@ -4,18 +4,13 @@ const metadata = require('../package.json');
 const compression = require('compression');
 const express = require('express');
 const path = require('path');
-
-const port = 80;
-// const secret = process.env.SESSION_SECRET;
-
-
-// const redisClient = redis.createClient();
+const port = 5000;
 const app = express();
 
 app.use(bodyParser.json({limit: '40mb'}));
 app.use(compression()); // gzip compress all responses
 
-const routes = ['/', '/contact', '/portfolio', '/skills'];
+const routes = ['/', '/work', '/about', '/contact', '/signin', '/join'];
 
 for (const route of routes) {
   app.get(route, (req, res) => {
@@ -25,23 +20,42 @@ for (const route of routes) {
 
 app.use(express.static(path.join(__dirname, '../client')));
 
+app.post('/buysearch', (req, res) => {
+  res.status(200).send(req.body.searchQuery);
+});
+
+app.post('/sellsearch', (req, res) => {
+  res.status(200).send(req.body.searchQuery);
+});
+
+app.post('/estimate', (req, res) => {
+  res.status(200).send(req.body.searchQuery);
+});
+
+app.get('/work', function(req, res) {
+  res.sendFile(path.join(__dirname, '/../client/index.html'));
+});
+
+app.get('/signin', function(req, res) {
+  res.sendFile(path.join(__dirname, '/../client/index.html'));
+});
+
+app.get('/join', function(req, res) {
+  res.sendFile(path.join(__dirname, '/../client/index.html'));
+});
+
+app.get('/about', function(req, res) {
+  res.sendFile(path.join(__dirname, '/../client/index.html'));
+});
 
 app.get('/contact', function(req, res) {
-  res.sendFile(path.join(__dirname, '/../client/index.html'));
-});
-
-app.get('/portfolio', function(req, res) {
-  res.sendFile(path.join(__dirname, '/../client/index.html'));
-});
-
-app.get('/skills', function(req, res) {
   res.sendFile(path.join(__dirname, '/../client/index.html'));
 });
 
 
 // wildcard route
 app.get('*', function(req, res) {
-  res.status(404).send('Not Found');
+  res.status(404).send('Error! Please go back to AgentMe.com');
 });
 
 app.listen(port, () => {

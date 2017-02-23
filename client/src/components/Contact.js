@@ -20,33 +20,7 @@ import Drawer from 'material-ui/Drawer';
 import ReactDOM from 'react-dom';
 import Tabs from 'muicss/lib/react/tabs';
 import Tab from 'muicss/lib/react/tab';
-
-const vex = require('vex-js');
-
-vex.registerPlugin(require('vex-dialog'));
-vex.defaultOptions.className = 'vex-theme-os';
-
-vex.dialog.buttons.NO.text = 'Close';
-vex.dialog.buttons.YES.text = 'Close';
-
-const emailPopUp = () => {
-  vex.dialog.open({
-      message: 'abaroa.franco@gmail.com',
-      input: [
-          '<div class="vex-custom-field-wrapper">',
-              '<button class="btn" data-clipboard-text="abaroa.franco@gmail.com">',
-                  'Copy to clipboard',
-              '</button>',
-          '</div>'
-      ].join(''),
-      callback: function (data) {
-          if (!data) {
-              return console.log('Cancelled')
-          }
-          console.log('Date', data.date, 'Color', data.color)
-      }
-  })
-};
+import Container from 'muicss/lib/react/container';
 
 
 export default props => {
@@ -54,31 +28,36 @@ export default props => {
   return (
       <div>
 
-              <Tabs initialSelectedIndex={3} justified={true}>
-                     <Tab className="mui--text-white" value="pane-1" label="Home" onActive={props.onEmailChange}></Tab>
-                     <Tab className="mui--text-white" value="pane-2" label="Portfolio" onActive={props.onEmailChange}></Tab>
-                     <Tab value="pane-3" label="Skills" onActive={props.onEmailChange}></Tab>
-                     <Tab value="pane-4" label="Contact" onActive={props.onEmailChange}></Tab>
-                   </Tabs>
 
-                   <br/>
+      <span className="mui--text-left">
+      <MuiThemeProvider muiTheme={getMuiTheme()}>
+      <RaisedButton label="AgentMe">
+      </RaisedButton>
+      </MuiThemeProvider>
+      </span>
 
-                   <div className="mui--text-display1 mui--text-center">
-                     <a onClick={() => { emailPopUp(); }} href="#"> Email </a>
-                   </div>
+      <span className="mui--text-right">
+      <Tabs defaultSelectedIndex={3}>
+              <Tab value="pane-1" label="Home" onActive={props.onEmailChange}></Tab>
+              <Tab value="pane-2" label="About" onActive={props.onEmailChange}></Tab>
+              <Tab value="pane-3" label="Work" onActive={props.onEmailChange}></Tab>
+              <Tab value="pane-4" label="Contact" onActive={props.onEmailChange}></Tab>
+      </Tabs>
+      </span>
 
-                   <div className="mui--text-display1 mui--text-center">
-                     <a href="https://www.github.com/francoabaroa"> Github </a>
-                   </div>
+      <br/>
+      <br/>
+      <br/>
+        <Container fluid={true}>
+          <span>
+            <div className="mui--text-display4 mui--text-center">agentME</div>
+          </span>
+        </Container>
 
-                   <div className="mui--text-display1 mui--text-center">
-                     <a href="https://www.linkedin.com/in/francoabaroa"> LinkedIn </a>
-                   </div>
 
-                   <div className="mui--text-display1 mui--text-center">
-                     <a href="img/FrancoAbaroaResume.pdf"> Resume </a>
-                   </div>
+              <h3 className="mui--text-center orange">real estate done right</h3>
 
-            </div>
+
+      </div>
   );
 };

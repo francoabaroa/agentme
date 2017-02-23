@@ -1,7 +1,12 @@
 body{
-  background-color: white !important;
-  font-family:'Rajdhani', sans-serif !important;
-  color: #2E4057 !important;
+  background-color: #fff !important;
+  font-family: 'Dosis', sans-serif;
+  color: #000 !important;
+/*  background-image:    url(img/test.jpg);
+  background-size:     cover;
+  background-repeat:   no-repeat;
+  background-position: center center;
+*/
 }
 
 .width {
@@ -9,21 +14,21 @@ body{
 }
 
 a {
-  color: #2E4057 !important;
-  /*border-bottom: 4px solid #2E4057 !important;*/
+  color: #fff !important;
+  /*border-bottom: 4px solid #D0CD94 !important;*/
 }
 
 .mui-tabs__bar>li.mui--is-active>a {
-  color: #2E4057 !important;
+  color: #fff !important;
 }
 
 .mui-tabs__bar>li.mui--is-active {
-  border-bottom: 3px solid #2E4057 !important;
-  /*border-top: 3px #2E4057 solid !important;*/
+  border: none !important;
+  /*border-top: 3px #D0CD94 solid !important;*/
 }
 
 .mui--text-display3 {
- color: #2E4057 !important;
+ color: #D0CD94 !important;
  text-align: center !important;
 }
 
@@ -47,7 +52,6 @@ a {
 .sizeDown {
   height: 100%;
   width: 100%;
-  border: 3px #2E4057 solid;
 }
 
 .sizeDownTwo {
@@ -70,11 +74,11 @@ a {
 }
 
 .box {
-  border-bottom: 4px #2E4057 solid;
+  border-bottom: 4px #D0CD94 solid;
   margin:0 auto;
   text-align: center !important;
   border-radius: 4px;
-  color: #2E4057;
+  color: #D0CD94;
   width: 470px;
 }
 
@@ -84,7 +88,7 @@ a {
 
 .test3 {
   font-size: 40px !important;
-  color: #2E4057 !important;
+  color: #D0CD94 !important;
   text-align: center;
 }
 
@@ -97,25 +101,25 @@ button.vex-dialog-button-secondary.vex-dialog-button.vex-last {
 }
 
 button.btn {
-  font-family:'Rajdhani', sans-serif !important;
+  font-family: 'Dosis', sans-serif;
   margin:0 auto !important;
-  border:2px #2E4057 solid;
-  color: #2E4057;
+  border:2px #D0CD94 solid;
+  color: #D0CD94;
   background-color: #f0f0f0;
 }
 
 .btn {
-  font-family:'Rajdhani', sans-serif !important;
+  font-family: 'Dosis', sans-serif;
   margin:0 auto !important;
-  border:2px #2E4057 solid;
-  color: #2E4057;
+  border:2px #D0CD94 solid;
+  color: #D0CD94;
   background-color: #f0f0f0;
 }
 
 div.vex-dialog-message {
-  font-family:'Rajdhani', sans-serif !important;
+  font-family: 'Dosis', sans-serif;
   text-align: center !important;
-  color: #2E4057 !important;
+  color: #D0CD94 !important;
 }
 
 div.vex-custom-field-wrapper {
@@ -126,4 +130,92 @@ div.vex-custom-field-wrapper {
   border-top: 3px solid #2196F3 !important;
 }
 
+h1 {
+  text-align: center !important;
+}
 
+.navBar {
+  min-width: 300px;
+  background-color: #ed6d2e;
+}
+
+.centered2 {
+  margin: 0 auto !important;
+  width: 100%;
+  text-align: center !important;
+
+}
+
+/*.testing {
+  background-image:    url(./img/solar1.jpg);
+    background-size:     cover;
+    background-repeat:   no-repeat;
+    background-position: center center;
+}*/
+
+.para{
+  width: 400px;
+  text-align: center;
+  margin: 0 auto;
+  font-size: 12px;
+}
+
+.orange {
+  color: #fff;
+}
+
+.bold{
+  font-weight: bold;
+}
+
+.icons{
+  width: 10%;
+  height: 10%;
+}
+
+
+input.form-control{
+  width: 60% !important;
+  margin: 0 auto !important;
+}
+
+
+
+.testyy {
+      font-size: 10px;
+      float: right !important;
+      background: none !important;
+      border: none !important;
+    }
+
+    .testyt {
+      background: none !important;
+      border: none !important;
+    }
+
+    .testyt:focus {
+      outline: none !important;
+    }
+
+.logo{
+  margin: 20px;
+  margin-right: 390px;
+  font-size: 30px;
+}
+
+.fancyText {
+  color: black !important;
+}
+
+button.btn {
+  color: black !important;
+  border-color: black !important;
+}
+
+.wowza:active{
+  background-color: black !important;
+}
+
+.wowza:focus{
+  background-color: black !important;
+}

@@ -1,8 +1,4 @@
-import AFRAME from 'aframe';
-import 'aframe-animation-component';
-import 'aframe-text-component';
 import 'babel-polyfill';
-import {Entity, Scene} from 'aframe-react';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Link, withRouter } from 'react-router';
@@ -12,16 +8,16 @@ import Drawer from 'material-ui/Drawer';
 import MenuItem from 'material-ui/MenuItem';
 import RaisedButton from 'material-ui/RaisedButton';
 
-import Home from './Home.js';
-import Main from './Main.js';
-import Portfolio from './Portfolio.js';
-import Skills from './Skills.js';
+import Inicio from './Inicio.js';
+import Work from './Work.js';
 import Contact from './Contact.js';
-import HackerWords from './HackerWords.js';
-import Immerse from './Immerse.js';
-import Goolp from './Goolp.js';
+import About from './About.js';
+import SearchFields from './SearchFields.js';
+import Signin from './Signin.jsx';
+import Join from './Join.jsx';
 
-
+const injectTapEventPlugin = require("react-tap-event-plugin");
+injectTapEventPlugin();
 
 class App extends React.Component {
   constructor(props) {
@@ -30,9 +26,12 @@ class App extends React.Component {
       email: '',
       password: '',
       firstName: '',
-      open: false
+      open: false,
+      check:'fak'
     };
   }
+
+
 
   componentDidMount () {
   }
@@ -47,14 +46,36 @@ class App extends React.Component {
   }
 
   onEmailChange() {
+
     let route = arguments[0].props.label.toLowerCase();
-    console.log(route, 'called');
+
     if (route === 'home') {
       this.props.router.replace('/');
     } else {
       this.props.router.replace('/' + route);
     }
   }
+
+  onBuySearch() {
+    console.log('arg');
+  }
+
+  onTest(arg) {
+    let route = arg.toLowerCase();
+
+    if (route === 'inicio') {
+      this.props.router.replace('/');
+    } else {
+      this.props.router.replace('/' + route);
+    }
+  }
+
+  onTest2(arg) {
+    this.setState({
+      check: arg
+    });
+  }
+
 
   portfolioChange(route) {
     if (route === 'immerse') {
@@ -69,46 +90,46 @@ class App extends React.Component {
     let self = this;
     let vrView = '';
 
-    if (this.props.router.location.pathname.indexOf('/portfolio') >= 0) {
+    if (this.props.router.location.pathname.indexOf('/work') >= 0) {
       console.log('this is rerendering PORT');
       return (
-              <Portfolio onEmailChange={this.onEmailChange.bind(this)} portfolioChange={this.portfolioChange.bind(this)} router={self.props.router}/>
+              <div>
+              <Work onEmailChange={this.onEmailChange.bind(this)} portfolioChange={this.portfolioChange.bind(this)} router={self.props.router}/>
+              <SearchFields onBuySearch={this.onBuySearch.bind(this)}/>
+              </div>
       );
 
-    } else if (this.props.router.location.pathname.indexOf('/skills') >= 0) {
-      console.log('this is rerendering SKILLS');
+    } else if (this.props.router.location.pathname.indexOf('/signin') >= 0) {
+      console.log('this is rerendering Signin');
       return (
-              <Skills onEmailChange={this.onEmailChange.bind(this)} router={this.props.router}/>
+              <Signin onTest={this.onTest.bind(this)} onEmailChange={this.onEmailChange.bind(this)} router={this.props.router}/>
+      );
+
+    } else if (this.props.router.location.pathname.indexOf('/join') >= 0) {
+      console.log('this is rerendering Join');
+      return (
+              <Join onTest={this.onTest.bind(this)} onEmailChange={this.onEmailChange.bind(this)} router={this.props.router}/>
       );
 
     } else if (this.props.router.location.pathname.indexOf('/contact') >= 0) {
-      console.log('this is rerendering CONTACT');
+      console.log('this is rerendering Contact');
       return (
               <Contact onEmailChange={this.onEmailChange.bind(this)} router={this.props.router}/>
       );
 
-    } else if (this.props.router.location.pathname.indexOf('/hackerwords') >= 0) {
+    } else if (this.props.router.location.pathname.indexOf('/about') >= 0) {
       console.log('this is rerendering CONTACT');
       return (
-              <HackerWords onEmailChange={this.onEmailChange.bind(this)} portfolioChange={this.portfolioChange.bind(this)} router={this.props.router}/>
-      );
-
-    } else if (this.props.router.location.pathname.indexOf('/immerse') >= 0) {
-      console.log('this is rerendering CONTACT');
-      return (
-              <Immerse onEmailChange={this.onEmailChange.bind(this)} portfolioChange={this.portfolioChange.bind(this)} router={this.props.router}/>
-      );
-
-    } else if (this.props.router.location.pathname.indexOf('/goolp') >= 0) {
-      console.log('this is rerendering CONTACT');
-      return (
-              <Goolp onEmailChange={this.onEmailChange.bind(this)} portfolioChange={this.portfolioChange.bind(this)} router={this.props.router}/>
+              <About onEmailChange={this.onEmailChange.bind(this)} router={this.props.router}/>
       );
 
     } else if (this.props.router.location.pathname.indexOf('/') >= 0) {
-      console.log('this is rerendering home');
+      console.log('this is rerendering Inicio');
       return (
-              <Home onEmailChange={this.onEmailChange.bind(this)} router={this.props.router} />
+              <div>
+              <Inicio check = {this.state.check} onEmailChange={this.onEmailChange.bind(this)} onTest={this.onTest.bind(this)} onTest2={this.onTest2.bind(this)} router={this.props.router} />
+              <SearchFields check={this.state.check}/>
+              </div>
       );
 
     }
